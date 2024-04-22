@@ -1,10 +1,15 @@
-from rest_framework.serializers import ModelSerializer
-from backend_app.models import CustomUser, AccessTokenBlacklist
-class UserSerializer(ModelSerializer):
+from rest_framework import serializers
+from .models import Messages, User, Chats
+
+class MessagesSerializer( serializers.ModelSerializer):
     class Meta:
-        model = CustomUser
-        fields='__all__'
-class BlacklistSerializer(ModelSerializer):
+        model=Messages
+        fields = '__all__'
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = AccessTokenBlacklist
-        fields = ['token']
+        model=User
+        fields = '__all__'
+class ChatsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Chats
+        fields= '__all__'
