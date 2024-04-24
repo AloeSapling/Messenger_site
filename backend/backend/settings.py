@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     "backend_app",
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
+    'channels',
 ]
+
+ASGI_APPLICATION = 'backend.asgi.application'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

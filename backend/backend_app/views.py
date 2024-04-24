@@ -16,6 +16,11 @@ class MessageViewSet(GenericViewSet):
         messages = Message.objects.all()
         messages = self.serializer_class(messages, many=True)
         return Response(messages.data)
+    @action(detail=False, methods=["put"])
+    def delete_all(self,request):
+        messages = Message.objects.all()
+        messages.delete()
+        return Response(status=status.HTTP_200_OK)
     @action(detail=False, methods=["post"])
     def message(self, request):
         message = self.serializer_class(data=request.data)

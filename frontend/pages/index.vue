@@ -1,7 +1,7 @@
 <template>
     <div>
         <p>Hello world</p>
-        <button @click="get_message()">click</button>
+        <button @click="websocketTest()">click</button>
     </div>
 </template>
 <script setup lang="ts">
@@ -21,7 +21,22 @@
         })
         console.log(dataHere)
     }
-    message()
+    // message()
+    async function websocketTest(){
+        const chatSocket = new WebSocket('ws://127.0.0.1:8000/ws/chat/');
+
+        chatSocket.onopen = function() {
+            console.log('WebSocket connection established.');
+            const message = {
+                'message': 'Hello, world!'
+            };
+            chatSocket.send(JSON.stringify(message));
+        };
+        chatSocket.onmessage = function(event) {
+            const message = JSON.parse(event.data);
+            console.log('Received message:', message);
+        };
+    }
 </script>
 <style>
     
