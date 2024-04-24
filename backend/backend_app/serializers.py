@@ -1,15 +1,10 @@
-from rest_framework import serializers
-from .models import Messages, User, Chats
-
-class MessagesSerializer( serializers.ModelSerializer):
+from backend_app.models import Message, CustomUser
+from rest_framework.serializers import ModelSerializer
+class MessageSerializer(ModelSerializer):
     class Meta:
-        model=Messages
-        fields = '__all__'
-class UserSerializer(serializers.ModelSerializer):
+        model = Message
+        fields ="__all__"
+class CustomUserSerializer(ModelSerializer):
     class Meta:
-        model=User
-        fields = '__all__'
-class ChatsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=Chats
-        fields= '__all__'
+        model = CustomUser
+        fields ="__all__"
