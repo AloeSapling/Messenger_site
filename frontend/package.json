@@ -15,7 +15,9 @@
     "nuxt": "^3.11.2",
     "oh-vue-icons": "^1.0.0-rc3",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-cookies": "^1.8.4",
+    "vue-router": "^4.3.0",
+    "ws": "^8.17.0"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.0"
