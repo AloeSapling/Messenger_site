@@ -20,6 +20,7 @@ from backend_app import views
 router = routers.DefaultRouter()
 router.register(r'message',viewset=views.MessageViewSet, basename="message")
 router.register(r'user',viewset=views.UserViewSet,basename="user")
+router.register(r'chat',viewset=views.ChatViewSet,basename='chat')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),

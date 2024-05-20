@@ -72,14 +72,15 @@ async function submit(){
     // formData.append('password', password.value);
     await $fetch('http://127.0.0.1:8000/user/login/', {
         method: 'POST',
-        // headers:{
-        //     'Access-Control-Allow-Origin': '*',
-        //     'Content-Type': 'multipart/form-data'
-        // },
-        body:{
+        headers:{
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body:JSON.stringify({
             username: username.value,
             password: password.value,
-        }
+        }),
+        'Access-Control-Allow-Origin': '*',
     })
     // .then(function(response){
     //     console.log(response)

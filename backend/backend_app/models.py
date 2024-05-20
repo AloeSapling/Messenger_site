@@ -33,3 +33,5 @@ class CustomUser(AbstractUser):
         return self.username
 class Message(models.Model):
     content = models.TextField()
+class Chat(models.Model):
+    users = models.ManyToManyField(CustomUser)
